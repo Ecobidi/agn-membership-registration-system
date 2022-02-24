@@ -1,0 +1,35 @@
+<%-include ("partials/top") %>
+<div class="row space">
+  <div class="col-12">
+    <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+      <h4 class="page-title">User Profile</h4>
+    </div>
+  </div> 
+</div>
+
+<div class="row space">
+  <div class="col-md-3 col-sm-12 mb-3 text-center text-md-left">
+    <img src='<%= user.photo %>' style="width: 150px; height: 172px; border-radius: 50%;" />
+  </div>
+  <div class="col-md-9 col-sm-12">
+    <div class="text-center text-md-left">
+      <h5><%= user.surname + ", " + user.first_name %></h5>
+    </div>
+    <table class="table table-sm-responsive table-responsive">
+      <tr>
+        <td><strong>Email:</strong></td>
+        <td><%= user.email %></td>
+      </tr>
+      <tr>
+        <td><strong>Role:</strong></td>
+        <td><%= user.role %></td>
+      </tr>
+      <tr>
+        <td><strong>Time Registered:</strong></td>
+        <td><%= user.createdAt %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<%-include ("partials/bottom") %>

@@ -1,0 +1,43 @@
+<%- include ('partials/top') %>
+    <div class="row">
+      <% if (error_msg && error_msg.length > 0) { %>
+        <div class="col-12">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong><%= error_msg %></strong> 
+          </div>
+        </div>
+        <script>
+          $(".alert").alert();
+        </script>
+      <% } %>
+    </div>
+    <div class="row space">
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+        <a href="/members" class="card bg-primary text-white d-flex p-2 align-items-center">
+          <i class="fa fa-id-card-o icon" aria-hidden="true"></i>
+          <div class="d-inline-block text-center">
+            <h4 class="card-title display-4"><%= member_count %></h4>
+            <p class="card-text">Members</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+        <a href="/users" class="card bg-info text-white d-flex p-2 align-items-center">
+          <i class="fa fa-users icon" aria-hidden="true"></i>
+          <div class="d-inline-block text-center">
+            <h4 class="card-title display-4"><%= user_count %></h4>
+            <p class="card-text">Users</p>
+          </div>
+        </a>
+      </div>
+    </div> 
+  </main>
+</div>
+
+</div>
+
+<%- include('partials/bottom') %>

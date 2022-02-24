@@ -1,0 +1,129 @@
+<%-include ("partials/top") %>
+<div class="row space">
+  <div class="col-12">
+    <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+      <h4 class="page-title">Member Profile</h4>
+    </div>
+  </div> 
+</div>
+
+<div class="row space">
+  <div class="col-md-3 col-sm-12 mb-3 text-center text-md-left">
+    <img src='<%= member.photo %>' style="width: 172px; height: 200px; border-radius: 50%;" />
+  </div>
+  <div class="col-md-9 col-sm-12">
+    <div class="text-center text-md-left">
+      <p class="lead mt-0 mb-3">Personal Information</p>
+      <h5><%= member.surname + ", " + member.first_name + " " + member.middle_name %></h5>
+    </div>
+    <table class="table table-sm-responsive table-responsive">
+      <tr>
+        <td><strong>Phone:</strong></td>
+        <td><%= member.phone %></td>
+      </tr>
+      <tr>
+        <td><strong>Home Address:</strong></td>
+        <td><%= member.residential_address%></td>
+      </tr>
+      <tr>
+        <td><strong>Office Address:</strong></td>
+        <td><%= member.office_address %></td>
+      </tr>
+      <tr>
+        <td><strong>State of Origin:</strong></td>
+        <td><%= member.state_of_origin %></td>
+      </tr>
+      <tr>
+        <td><strong>L.G.A of Origin:</strong></td>
+        <td><%= member.lga_of_origin %></td>
+      </tr>
+      <tr>
+        <td><strong>Marital Status:</strong></td>
+        <td><%= member.is_married ? 'Married' : 'Single' %></td>
+      </tr>
+      <tr>
+        <td><strong>Name of Spouse:</strong></td>
+        <td><%= member.is_married ? member.name_of_spouse : 'N/A' %></td>
+      </tr>
+    </table>
+
+    <p class="lead">Additional Information</p>
+    
+    <table class="table table-sm-responsive table-responsive">
+      <tr>
+        <td><strong>Is Spouse A Member?:</strong></td>
+        <td><%= member.is_spouse_a_member ? 'Yes' : 'No' %></td>
+      </tr>
+      <tr>
+        <td><strong>Is A Born Again?:</strong></td>
+        <td><%= member.is_born_again ? 'Yes' : 'No' %></td>
+      </tr>
+      <tr>
+        <td><strong>When He/She Became Born Again?:</strong></td>
+        <td><%= member.is_born_again ? member.when_born_again : 'N/A' %></td>
+      </tr>
+      <tr>
+        <td><strong>Is A Baptized Member?:</strong></td>
+        <td><%= member.is_baptized_member ? 'Yes' : 'No' %></td>
+      </tr>
+      <tr>
+        <td><strong>When He/She Became Baptized?:</strong></td>
+        <td><%= member.when_baptized ? member.when_baptized : 'N/A' %></td>
+      </tr>
+      <tr>
+        <td><strong>Is A Full Member?:</strong></td>
+        <td><%= member.is_full_member ? 'Yes' : 'No' %></td>
+      </tr>
+      <tr>
+        <td><strong>Is Baptized In The Holy Spirit?:</strong></td>
+        <td><%= member.is_holy_spirit_baptized ? 'Yes' : 'No' %></td>
+      </tr>
+      <tr>
+        <td><strong>When He/She Became Baptized In The Holy Spirit?:</strong></td>
+        <td><%= member.is_holy_spirit_baptized ? member.when_holy_spirit_baptized : 'N/A' %></td>
+      </tr>
+      <tr>
+        <td><strong>Is A Tithe Payer?:</strong></td>
+        <td><%= member.is_tithe_payer ? 'Yes' : 'No' %></td>
+      </tr>
+      <tr>
+        <td><strong>Last Tithe Date:</strong></td>
+        <td><%= member.is_tithe_payer ? member.last_tithing_date : 'N/A' %></td>
+      </tr>
+      <tr>
+        <td><strong>Was Baptized In The Local Assembly?:</strong></td>
+        <td><%= member.was_baptized_in_local_assembly ? 'Yes' : 'No' %></td>
+      </tr>
+      <tr>
+        <td><strong>Period Transferred To Church?:</strong></td>
+        <td><%= member.was_baptized_in_local_assembly ? 'Baptized In The Local Assembly' : member.period_transferred_to_church %></td>
+      </tr>
+      <tr>
+        <td><strong>Location Transferred From?:</strong></td>
+        <td><%= member.was_baptized_in_local_assembly ? 'N/A' : member.location_transferred_from %></td>
+      </tr>
+      <tr>
+        <td><strong>Attends Sunday School?:</strong></td>
+        <td><%= member.is_sunday_school_attendee ? 'Yes' : 'No' %></td>
+      </tr>
+      <tr>
+        <td><strong>Name of Sunday School Teacher?:</strong></td>
+        <td><%= member.is_sunday_school_attendee ? member.sunday_school_teacher : 'N/A' %></td>
+      </tr>
+      <tr>
+        <td><strong>Attends Bible Class?:</strong></td>
+        <td><%= member.is_bible_class_attendee? 'Yes' : 'No' %></td>
+      </tr>
+      <tr>
+        <td><strong>Primary Church Department?:</strong></td>
+        <td><%= member.primary_church_department %></td>
+      </tr>
+      <tr>
+        <td><strong>Secondary Church Department?:</strong></td>
+        <td><%= member.secondary_church_department %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<%-include ("partials/bottom") %>

@@ -1,0 +1,257 @@
+<%-include ("partials/top") %>
+<div class="row space">
+  <div class="col-12">
+    <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+      <h4 class="page-title">Add Member</h4>
+    </div>
+  </div> 
+</div>
+
+<div class="row space">
+<div class="col-12">
+
+<form action="/members/new" method="POST" enctype="multipart/form-data" class="card">
+
+  <fieldset class="row card-body">
+    <legend>Personal Information</legend>
+    <div class="form-group col-md-4">
+      <label>Surname: <strong class="text-danger">*</strong></label>
+      <input required type="text" class="form-control" name="surname" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>First Name: <strong class="text-danger">*</strong></label>
+      <input required type="text" class="form-control" name="first_name" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Middle Name (Optional):</label>
+      <input type="text" class="form-control" name="middle_name" />
+    </div>
+  </fieldset>
+
+  <fieldset class="row card-body">
+    <legend>Contact Information</legend>
+    <div class="form-group col-md-4">
+      <label>Phone Number: <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="phone" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Residential Address: <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="residential_address" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Office Address (Optional):</label>
+      <input type="text" class="form-control" name="office_address" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>State of Origin: <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="state_of_origin" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>L.G.A. of Origin: <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="lga_of_origin" />
+    </div>
+  </fieldset>
+
+  <fieldset class="row card-body">
+    <legend>Additional Information</legend>
+    <div class="form-group col-md-4">
+      <label>Primary Church Department: <strong class="text-info">*</strong></label>
+      <select class="form-control" name="primary_church_department" required>
+        <option value="">--Choose Main Department Belonged--</option>
+        <option value="MM">Men's Ministry</option>
+        <option value="WM">Women's Ministry</option>
+        <option value="OT">Others</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Secondary Church Department: <strong class="text-info">*</strong></label>
+      <select class="form-control" name="secondary_church_department">
+        <option value=""></option>
+        <option>Youth</option>
+        <option>Y.S</option>
+        <option>Missonette</option>
+        <option>R.R</option>
+        <option>H.P.M</option>
+        <option>Mission</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Occupation: <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="occupation" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Are you married?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="is_married_yes" type="radio" class="form-check-input" name="is_married" value="true" onchange="displaySibling(true, 'spouse_info', 2)" />
+        <label class="form-check-label" for="is_married_yes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="is_married_no" type="radio" class="form-check-input" name="is_married" value="false" onchange="displaySibling(false, 'spouse_info', 2)" />
+        <label class="form-check-label" for="is_married_no">No</label>
+      </div>
+    </div>
+    <div class="spouse_info form-group col-md-4 d-none">
+      <label>If Married? Name of Spouse: <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="name_of_spouse" />
+    </div>
+    <div class="spouse_info form-group col-md-4 d-none">
+      <label>Does Spouse Attend The Church?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="is_spouse_a_member_yes" type="radio" class="form-check-input" name="is_spouse_a_member" value="true" onchange="displaySibling(true, 'is_spouse_a_member')" />
+        <label class="form-check-label" for="is_spouse_a_member_yes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="is_spouse_a_member_no" type="radio" class="form-check-input" name="is_spouse_a_member" value="false" onchange="displaySibling(false, 'is_spouse_a_member')" />
+        <label class="form-check-label" for="is_spouse_a_member_no">No</label>
+      </div>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Are born again?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="is_born_again_yes" type="radio" class="form-check-input" name="is_born_again" value="true" onchange="displaySibling(true, 'is_born_again')" />
+        <label class="form-check-label" for="is_born_again_yes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="is_born_again_no" type="radio" class="form-check-input" name="is_born_again" value="false" onchange="displaySibling(false, 'is_born_again')" />
+        <label class="form-check-label" for="is_born_again_no">No</label>
+      </div>
+    </div>
+    <div id="is_born_again" class="form-group col-md-4 d-none">
+      <label>If Born Again, When? : <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="when_born_again" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Are You Baptized?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="is_baptized_yes" type="radio" class="form-check-input" name="is_baptized" value="true" onchange="displaySibling(true, 'is_baptized')" />
+        <label class="form-check-label" for="is_baptized_yes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="is_baptized_no" type="radio" class="form-check-input" name="is_baptized" value="false" onchange="displaySibling(false, 'is_baptized')" />
+        <label class="form-check-label" for="is_baptized_no">No</label>
+      </div>
+    </div>
+    <div id="is_baptized" class="form-group col-md-4 d-none">
+      <label>If Baptized, When? : <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="when_baptized" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Are You A Full Member?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="is_full_member_yes" type="radio" class="form-check-input" name="is_full_member" value="true" />
+        <label class="form-check-label" for="is_full_member_yes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="is_full_member_no" type="radio" class="form-check-input" name="is_full_member" value="false" />
+        <label class="form-check-label" for="is_full_member_no">No</label>
+      </div>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Being Baptized In The Holy Spirit?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="is_holy_spirit_baptized_yes" type="radio" class="form-check-input" name="is_holy_spirit_baptized" value="true" onchange="displaySibling(true, 'is_holy_spirit_baptized')" />
+        <label class="form-check-label" for="is_holy_spirit_baptized_yes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="is_holy_spirit_baptized_no" type="radio" class="form-check-input" name="is_holy_spirit_baptized" value="false" onchange="displaySibling(false, 'is_holy_spirit_baptized')" />
+        <label class="form-check-label" for="is_holy_spirit_baptized_no">No</label>
+      </div>
+    </div>
+    <div id="is_holy_spirit_baptized" class="form-group col-md-4 d-none">
+      <label>If Baptized With Holy Spirit, When? : <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="when_holy_spirit_baptized" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Do You Pay Tithe?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="is_tithe_payer_yes" type="radio" class="form-check-input" name="is_tithe_payer" value="true" onchange="displaySibling(true, 'is_tithe_payer')" />
+        <label class="form-check-label" for="is_tithe_payer_yes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="is_tithe_payer_no" type="radio" class="form-check-input" name="is_tithe_payer" value="false" onchange="displaySibling(false, 'is_tithe_payer')" />
+        <label class="form-check-label" for="is_tithe_payer_no">No</label>
+      </div>
+    </div>
+    <div id="is_tithe_payer" class="form-group col-md-4 d-none">
+      <label>When Last Did You Tithe?: <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="last_tithing_date" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Was Baptized In The Local Assembly?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="was_baptized_in_local_assembly_yes" type="radio" class="form-check-input" name="was_baptized_in_local_assembly" value="true" onchange="displaySibling(false, 'was_baptized_in_local_assembly', 2)" />
+        <label class="form-check-label" for="was_baptized_in_local_assembly_yes">Yes, I was baptized here</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="was_baptized_in_local_assembly_no" type="radio" class="form-check-input" name="was_baptized_in_local_assembly" value="false" onchange="displaySibling(true, 'was_baptized_in_local_assembly', 2)" />
+        <label class="form-check-label" for="was_baptized_in_local_assembly_no">No, I transferred</label>
+      </div>
+    </div>
+    <div class="was_baptized_in_local_assembly form-group col-md-4 d-none">
+      <label>If No, When Did You Transfer To This Church? : <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="period_transferred_to_church" />
+    </div>
+    <div class="was_baptized_in_local_assembly form-group col-md-4 d-none">
+      <label>Where Did You Transfer From? : <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="location_transferred_from" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Do You Attend Sunday School?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="is_sunday_school_attendee_yes" type="radio" class="form-check-input" name="is_sunday_school_attendee" value="true" onchange="displaySibling(true, 'is_sunday_school_attendee')" />
+        <label class="form-check-label" for="is_sunday_school_attendee_yes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="is_sunday_school_attendee_no" type="radio" class="form-check-input" name="is_sunday_school_attendee" value="false" onchange="displaySibling(false, 'is_sunday_school_attendee')" />
+        <label class="form-check-label" for="is_sunday_school_attendee_no">No</label>
+      </div>
+    </div>
+    <div id="is_sunday_school_attendee" class="form-group col-md-4 d-none">
+      <label>If Yes, Who Is Your Sunday School Teacher? : <strong class="text-info">*</strong></label>
+      <input type="text" class="form-control" name="sunday_school_teacher" />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Do You Attend Bible Class?: <strong class="text-info">*</strong></label> <br />
+      <div class="form-check form-check-inline">
+        <input id="is_bible_class_attendee_yes" type="radio" class="form-check-input" name="is_bible_class_attendee" value="true" />
+        <label class="form-check-label" for="is_bible_class_attendee_yes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="is_bible_class_attendee_no" type="radio" class="form-check-input" name="is_bible_class_attendee" value="false" />
+        <label class="form-check-label" for="is_bible_class_attendee_no">No</label>
+      </div>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Photo: <strong class="text-info">*</strong></label>
+      <input type="file" class="form-control" name="photo" accept=".jpg,.png" />
+    </div>
+  </fieldset>
+  
+  <div class="form-group mt-4">
+    <button class="btn btn-success form-control" type="submit">Submit</button>
+  </div>
+</form>
+
+<script>
+
+function displaySibling(status, associate_element_id, numberOfAssociatedElements) {
+  if (status) {
+    if (numberOfAssociatedElements && numberOfAssociatedElements > 1) {
+      let associatedElements = document.getElementsByClassName(associate_element_id);
+      [...associatedElements].forEach(e => e.classList.remove("d-none"))
+    } else {
+      document.getElementById(associate_element_id).classList.remove("d-none")
+    }
+  } else {
+    if (numberOfAssociatedElements && numberOfAssociatedElements > 1) {
+      let associatedElements = document.getElementsByClassName(associate_element_id);
+      [...associatedElements].forEach(e => e.classList.add("d-none"))
+    } else {
+      document.getElementById(associate_element_id).classList.add("d-none")
+    }
+  }
+}
+
+</script>
+
+<%-include ("partials/bottom") %>

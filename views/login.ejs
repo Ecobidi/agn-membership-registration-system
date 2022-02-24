@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" href="/images/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
+  <title><%= appname %></title>
+  <style>
+    .bg-primary, .btn-primary {
+      background-color: #3244a2 !important;
+    }
+    .text-primary {
+      color: #3244a2 !important;
+    }
+    body {
+      background-image: url(/images/login-background.jpg);
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <main class="container-fluid" style="min-height: 100vh;">
+    <% /* %>
+    <section class="row space">
+      <div class="col-md-4 offset-md-4 col-sm-12 p-3 border-rounded" style="background-color: rgb(9, 6, 51);">
+        <div class="text-center text-white mb-4 mt-4">
+          <div>
+            <i class="fa fa-key icon" aria-hidden="true"></i>
+          </div>
+          <h3>ADMIN PANEL</h3>
+        </div>
+
+        <form action="/login" method="POST">
+          <div>
+            <% if (error_msg && error_msg.length > 0) { %>
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <strong><%= error_msg %></strong> 
+              </div>
+              <script>
+                $(".alert").alert();
+              </script>
+            <% } %>
+          </div>
+          
+          <div class="form-group pb-1">
+            <input required name="username" type="text" class="form-control" placeholder="Username">
+          </div>
+          <div class="form-group pb-1">
+            <input required name="password" type="password" class="form-control" placeholder="password">
+          </div>
+          <div class="form-group">
+            <div class="clearfix">
+              <button type="submit" class="btn btn-primary pull-right">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <% */ %>
+    <div class="row text-white">
+      <div class="col-12 d-flex align-items-center justify-content-center">
+        <div class="card text-center" style="max-width: 420px; width: 70%; background-image: linear-gradient(45deg, #780206, #061161) !important; background-repeat: repeat-x; margin-top: 3rem; border: none;">
+          <div class="card-img overlap" style="top: -30px; position: relative;">
+            <img class="mb-1" src="/images/logo.jpg" width="190" style="height: 112px; width: auto; border-radius: 50%;">
+          </div>
+          <div class="card-body">
+            <div class="card-block">
+              <h2 class="white mb-2 text-uppercase">Login</h2>
+              <form action="/login" method="POST">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <input value="ecobidi@gmail.com" type="email" class="form-control" name="email" placeholder="Email" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <input value="admin" type="password" class="form-control" name="password" placeholder="Password" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0 ml-3">
+                        <input type="checkbox" class="custom-control-input" checked id="rememberme">
+                        <label class="custom-control-label float-left white" for="rememberme">Remember Me</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-success btn-block btn-raised">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card-footer">
+              <div class="float-left"><a (click)="onForgotPassword()" class="white">Recover Password</a></div>
+              <!--<div class="float-right"><a (click)="onRegister()" class="white">New User?</a></div>-->
+          </div>
+            </div>
+        </div>
+    </div>
+  </main>
+
+  
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
